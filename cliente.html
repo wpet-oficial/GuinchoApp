@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Click Guincho - Cliente</title>
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #111;
+    color: white;
+}
+header {
+    background-color: #c40000;
+    padding: 15px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+.container {
+    padding: 20px;
+}
+button {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.primary {
+    background-color: #ffcc00;
+    color: black;
+    font-weight: bold;
+}
+.service {
+    background-color: #222;
+    color: white;
+}
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 6px;
+    border: none;
+}
+.card {
+    background-color: #1e1e1e;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+</style>
+</head>
+<body>
+
+<header>Click Guincho - Cliente</header>
+
+<div class="container">
+
+<h3>Solicitar Serviço</h3>
+
+<input type="text" placeholder="Seu nome">
+<input type="text" placeholder="Localização atual">
+<input type="text" placeholder="Destino">
+
+<button class="primary">Preciso de Guincho Agora</button>
+
+<h3>Escolha o serviço</h3>
+
+<button class="service">Guincho Leve</button>
+<button class="service">Guincho Pesado</button>
+<button class="service">Troca de Pneu</button>
+<button class="service">Pane Seca</button>
+<button class="service">Chaveiro</button>
+
+<div class="card">
+<h4>Status do Atendimento</h4>
+<p>Aguardando solicitação...</p>
+</div>
+
+<div class="card">
+<h4>Histórico</h4>
+<p>Nenhum atendimento ainda.</p>
+</div>
+
+</div>
+
+</body>
+</html>
