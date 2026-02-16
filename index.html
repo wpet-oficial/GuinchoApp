@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Uber Guincho - Marketplace de Guinchos</title>
+  <style>
+    :root {
+      --primary: #2d8cff;
+      --secondary: #12274a;
+      --bg: #f5f8fa;
+      --accent: #ffb800;
+      --white: #fff;
+      --shadow: 0 4px 16px rgba(0,0,0,0.1);
+    }
+    body {
+      margin: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--secondary);
+    }
+    header {
+      background: var(--primary);
+      color: var(--white);
+      padding: 1rem 0.5rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    header h1 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin: 0;
+    }
+    nav {
+      display: flex;
+      gap: 1.2rem;
+    }
+    nav a {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 0.3rem 0.7rem;
+      border-radius: 20px;
+      transition: background 0.3s;
+    }
+    nav a:hover {
+      background: var(--accent);
+      color: var(--secondary);
+    }
+
+    .hero {
+      padding: 2rem 1rem;
+      text-align: center;
+      background: var(--white);
+      box-shadow: var(--shadow);
+      margin: 1.5rem auto;
+      max-width: 900px;
+      border-radius: 15px;
+    }
+    .hero h2 {
+      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    .hero p {
+      font-size: 1rem;
+      color: var(--secondary);
+      margin-bottom: 1.5rem;
+    }
+    .hero .cta-btn {
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      border-radius: 25px;
+      padding: 1rem 2.2rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.3s;
+      box-shadow: var(--shadow);
+    }
+    .hero .cta-btn:hover {
+      background: var(--accent);
+      color: var(--secondary);
+    }
+
+    .sections {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin: 2rem auto;
+      max-width: 900px;
+    }
+    .section {
+      background: var(--white);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .section h3 {
+      color: var(--primary);
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+    }
+    .section ul, .section ol {
+      padding-left: 1.1rem;
+    }
+    .section li {
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+    .section .destaque {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .cycle {
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: var(--shadow);
+      margin: 1.2rem 0 0.5rem;
+    }
+    .cycle {
+      font-weight: 500;
+      text-align: center;
+      font-size: 1.09rem;
+      line-height: 1.6;
+    }
+    .brasil {
+      background: var(--accent);
+      color: var(--secondary);
+      padding: 1rem;
+      border-radius: 10px;
+      margin-top: 1rem;
+      box-shadow: var(--shadow);
+      font-weight: 500;
+      font-size: 1.09rem;
+      text-align: center;
+    }
+
+    footer {
+      background: var(--secondary);
+      color: var(--white);
+      padding: 1.5rem 1rem;
+      text-align: center;
+      font-size: 1rem;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+    @media (min-width:700px) {
+      .sections { flex-direction: row; }
+      .section { flex: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Uber Guincho</h1>
+    <nav>
+      <a href="#usuario">Para Usuário</a>
+      <a href="#dono">Para Dono de Guincho</a>
+      <a href="#diferencial">Diferencial</a>
+      <a href="#brasil">Por que no Brasil?</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h2>O Marketplace de Guinchos</h2>
+    <p>O app do tipo Uber, mas para guinchos: usuários solicitam com facilidade; donos de guincho encontram clientes e faturam mais.</p>
+    <button class="cta-btn">Quero conhecer</button>
+  </div>
+
+  <div class="sections">
+    <div class="section" id="usuario">
+      <h3>Para o Usuário</h3>
+      <ul>
+        <li>Solicite um guincho <span class="destaque">com apenas 2 toques</span></li>
+        <li>Veja o <span class="destaque">preço antes</span>, sem surpresa</li>
+        <li>Acompanhe o guincho chegando em tempo real</li>
+        <li>Pague agora, <span class="destaque">diretamente pelo app</span></li>
+        <li>Avalie o serviço e ajude a melhorar a plataforma</li>
+      </ul>
+    </div>
+
+    <div class="section" id="dono">
+      <h3>Para o Dono de Guincho</h3>
+      <ul>
+        <li>Crie sua conta e cadastre a frota <span class="destaque">em minutos</span></li>
+        <li>Receba solicitações <span class="destaque">em tempo real</span></li>
+        <li>Escolha quais corridas deseja aceitar</li>
+        <li>Rotas otimizadas, <span class="destaque">pagamento garantido</span></li>
+        <li>Acompanhe histórico, faturamento e desempenho</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section" id="diferencial">
+    <h3>Diferencial Estratégico</h3>
+    <p>Transforme o proprietário de guincho em um <span class="destaque">parceiro motorista</span>! Simples, ágil e digital:</p>
+    <ul>
+      <li>Cadastro simples e documentação digital</li>
+      <li>Painel de controle, sistema de reputação</li>
+      <li>Pagamentos rápidos e suporte 24h</li>
+    </ul>
+    <div class="cycle">
+      Mais guinchos cadastrados → mais disponibilidade<br>
+      Mais disponibilidade → mais usuários satisfeitos<br>
+      Mais usuários → mais renda para os parceiros
+    </div>
+  </div>
+
+  <div class="section brasil" id="brasil">
+    <h3>Por que isso é poderoso no Brasil?</h3>
+    <ul>
+      <li>O setor de guincho é <span class="destaque">pulverizado e analógico</span></li>
+      <li>Donos de guincho dependem de oficinas ou contatos informais</li>
+      <li>O app traz uma nova fonte de renda <span class="destaque">previsível</span></li>
+      <li>Usuários ganham <span class="destaque">transparência, rapidez e segurança</span></li>
+    </ul>
+    <p>Marketplace de guinchos: tão fácil para quem precisa quanto para quem quer trabalhar!</p>
+  </div>
+
+  <footer>
+    &copy; 2026 Uber Guincho - O marketplace de guinchos. Feito para facilitar sua vida e criar oportunidades.
+  </footer>
+</body>
+</html>
