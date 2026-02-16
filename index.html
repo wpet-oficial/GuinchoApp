@@ -1,17 +1,173 @@
 <!DOCTYPE html>
-<html>
-<head>
-<title>Click Guincho</title>
-</head>
-<body style="font-family: Arial; text-align:center; padding:50px; background:#111; color:white;">
-<h1 style="color:#c40000;">Click Guincho</h1>
-<p>Escolha o módulo:</p>
 
-<a href="cliente.html"><button style="padding:15px;margin:10px;">App Cliente</button></a>
-<br>
-<a href="parceiro.html"><button style="padding:15px;margin:10px;">App Parceiro</button></a>
-<br>
-<a href="admin.html"><button style="padding:15px;margin:10px;">Painel Admin</button></a>
-
-</body>
-</html>
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Click Guincho - Resgate 24h</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ffd900",
+                        "background-light": "#f8f8f5",
+                        "background-dark": "#12110a",
+                        "surface-dark": "#1e1c12",
+                        "border-dark": "#3a3727",
+                    },
+                    fontFamily: {
+                        "display": ["Public Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Public Sans', sans-serif;
+        }
+        .map-gradient-overlay {
+            background: linear-gradient(180deg, rgba(18, 17, 10, 0.8) 0%, rgba(18, 17, 10, 0) 20%, rgba(18, 17, 10, 0) 70%, rgba(18, 17, 10, 1) 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-white font-display overflow-hidden h-screen flex flex-col">
+<!-- Header Overlay -->
+<header class="absolute top-0 left-0 w-full z-20 flex items-center justify-between p-4 bg-gradient-to-b from-background-dark/80 to-transparent">
+<div class="flex items-center gap-2">
+<div class="bg-primary p-1.5 rounded-lg">
+<span class="material-symbols-outlined text-background-dark font-bold">auto_towing</span>
+</div>
+<h1 class="text-xl font-bold tracking-tight text-white uppercase italic">Click <span class="text-primary">Guincho</span></h1>
+</div>
+<button class="size-10 rounded-full border-2 border-primary/30 overflow-hidden bg-surface-dark flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">person</span>
+</button>
+</header>
+<!-- Main Content (Map Area) -->
+<main class="relative flex-1 @container">
+<!-- Mock Map Background -->
+<div class="absolute inset-0 z-0 bg-cover bg-center grayscale-[0.5] contrast-[1.1] brightness-[0.4]" data-alt="Dark themed city map with navigation routes" data-location="São Paulo, Brazil" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuADsYb8PBSzHpfVgLiZ51X7kys-Mj9Cyd-698-i0nDKxb9PKx3_-h9rrAn9vNiG5xzHygLZKePSIdtXOdci5OuU5fVuXKz29mWXyQ7_3v7FGgsFbteBOA_fE0S582jeto6Qw7cfMu1tUXnR7DnJ4Z6g3jUHMKxSxHA4J85tOJ7zIj9Dbt8KYnXwbp4qeOQwyawniumB18Q469F3aGvCHRNyn5chjhv1oxra21x3TpL2FOVu0nEbRey9cVhfL91nrus1CDkQDDe5pDc');">
+</div>
+<!-- Map Overlay Gradient -->
+<div class="absolute inset-0 z-1 map-gradient-overlay pointer-events-none"></div>
+<!-- Simulated Map Pins (Nearby Tow Trucks) -->
+<div class="absolute top-1/3 left-1/4 z-10 animate-pulse">
+<span class="material-symbols-outlined text-primary text-4xl drop-shadow-[0_0_8px_rgba(255,217,0,0.6)]">local_shipping</span>
+</div>
+<div class="absolute bottom-1/3 right-1/3 z-10 opacity-80">
+<span class="material-symbols-outlined text-primary text-3xl">local_shipping</span>
+</div>
+<div class="absolute top-1/2 right-1/4 z-10 opacity-60">
+<span class="material-symbols-outlined text-primary text-3xl">local_shipping</span>
+</div>
+<!-- Floating Location Input -->
+<div class="absolute top-20 left-0 w-full px-4 z-20">
+<div class="flex items-center bg-surface-dark/95 backdrop-blur-md border border-border-dark rounded-xl p-3 shadow-2xl">
+<span class="material-symbols-outlined text-primary mr-3">my_location</span>
+<div class="flex-1">
+<p class="text-[10px] text-gray-400 uppercase font-bold tracking-wider">Sua Localização</p>
+<input class="bg-transparent border-none p-0 text-sm focus:ring-0 w-full text-white font-medium" placeholder="Onde você está?" type="text" value="Av. Paulista, 1000 - Bela Vista"/>
+</div>
+<button class="p-2 text-gray-400 hover:text-white">
+<span class="material-symbols-outlined">edit</span>
+</button>
+</div>
+</div>
+<!-- Map Controls -->
+<div class="absolute right-4 bottom-1/2 translate-y-20 z-20 flex flex-col gap-2">
+<button class="size-10 bg-surface-dark rounded-lg flex items-center justify-center border border-border-dark text-white">
+<span class="material-symbols-outlined">add</span>
+</button>
+<button class="size-10 bg-surface-dark rounded-lg flex items-center justify-center border border-border-dark text-white">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<button class="size-10 bg-primary rounded-lg flex items-center justify-center shadow-lg shadow-primary/20 text-background-dark mt-2">
+<span class="material-symbols-outlined font-bold">near_me</span>
+</button>
+</div>
+<!-- Emergency Interaction Panel -->
+<div class="absolute bottom-0 left-0 w-full z-30 px-4 pb-6 space-y-4">
+<!-- Service Selection & Info -->
+<div class="bg-surface-dark/95 backdrop-blur-xl border border-border-dark rounded-2xl p-4 shadow-2xl">
+<div class="flex items-center justify-between mb-4">
+<div class="flex bg-background-dark p-1 rounded-lg border border-border-dark w-full">
+<button class="flex-1 flex flex-col items-center py-2 rounded-md bg-primary text-background-dark font-bold transition-all">
+<span class="material-symbols-outlined">directions_car</span>
+<span class="text-[10px] uppercase">Leve</span>
+</button>
+<button class="flex-1 flex flex-col items-center py-2 rounded-md text-gray-400 hover:text-white transition-all">
+<span class="material-symbols-outlined">local_shipping</span>
+<span class="text-[10px] uppercase">Pesado</span>
+</button>
+<button class="flex-1 flex flex-col items-center py-2 rounded-md text-gray-400 hover:text-white transition-all">
+<span class="material-symbols-outlined">two_wheeler</span>
+<span class="text-[10px] uppercase">Moto</span>
+</button>
+</div>
+</div>
+<!-- ETA & Price Preview -->
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-background-dark rounded-xl p-3 border border-border-dark flex items-center gap-3">
+<div class="size-10 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-xl">schedule</span>
+</div>
+<div>
+<p class="text-[10px] text-gray-400 uppercase font-bold">Chegada</p>
+<p class="text-sm font-bold">12 - 18 min</p>
+</div>
+</div>
+<div class="bg-background-dark rounded-xl p-3 border border-border-dark flex items-center gap-3">
+<div class="size-10 rounded-full bg-green-500/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-green-500 text-xl">payments</span>
+</div>
+<div>
+<p class="text-[10px] text-gray-400 uppercase font-bold">Estimativa</p>
+<p class="text-sm font-bold text-green-400">R$ 180,00</p>
+</div>
+</div>
+</div>
+<!-- Main CTA -->
+<button class="w-full mt-4 bg-primary hover:bg-yellow-400 text-background-dark font-black text-lg py-4 rounded-xl flex items-center justify-center gap-3 shadow-[0_8px_20px_rgba(255,217,0,0.3)] active:scale-[0.98] transition-all uppercase">
+<span class="material-symbols-outlined font-black">emergency</span>
+                    Preciso de guincho agora
+                </button>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="bg-surface-dark border-t border-border-dark px-6 py-3 flex items-center justify-between z-40">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined fill-1">home</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Início</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-gray-500 hover:text-gray-300" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Pedidos</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-gray-500 hover:text-gray-300" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Carteira</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-gray-500 hover:text-gray-300" href="#">
+<span class="material-symbols-outlined">manage_accounts</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Perfil</span>
+</a>
+</nav>
+</body></html>
